@@ -16,10 +16,7 @@ class UserLocalDataSource {
       }
 
       final json = jsonDecode(jsonString) as Map<String, dynamic>;
-      return User(
-        id: json['id'] as String,
-        email: json['name'] as String,
-      );
+      return User.fromJson(json);
     } catch (e) {
       return null;
     }
@@ -27,11 +24,10 @@ class UserLocalDataSource {
 
   Future<void> save(User user) async {
     try {
-      final json = {
-        'id': user.id,
-        'name': user.email,
-      };
-      await flutterSecureStorage.write(key: _userKey, value: jsonEncode(json));
+      await flutterSecureStorage.write(
+        key: _userKey,
+        value: jsonEncode(user.toJson()),
+      );
     } catch (e) {}
   }
 

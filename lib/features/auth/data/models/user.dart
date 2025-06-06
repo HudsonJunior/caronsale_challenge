@@ -9,6 +9,20 @@ class User extends Equatable {
     required this.email,
   });
 
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      id: json['id'] as String,
+      email: json['email'] as String,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'email': email,
+    };
+  }
+
   @override
   List<Object?> get props => [id, email];
 }
