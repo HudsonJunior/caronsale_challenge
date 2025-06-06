@@ -8,6 +8,18 @@ The project follows a Repository Pattern approach from Android along with the MV
 
 I've done what I thought was enough for a small application like this. I haven't used abstract classes (dependency inversion principle) as I thought it was not needed for this usecase. I tried to kept it simple and at the same time robust.
 
+## Features
+- Authentication
+  - Sign in with e-mail 
+  - Form validation
+  - Error handling
+  - Cache system
+- Vehicles
+  - Form validation
+  - Error handling
+  - Cache system: If a successfull vehicle is returned from a vin and an user ID we are gonna use that response in any subsequent failed request.
+  - Multiple choices handling
+
 ### Core Layer
 - **api/**: Contains API client and base configurations
 - **utils/**: Utility functions and constants

@@ -21,7 +21,7 @@ class VehicleLocalDataSource {
       );
 
       if (jsonVehicleString == null) {
-        final jsonOptionsString = sharedPreferences.getString(
+        final jsonOptionsString = sharedPreferences.getStringList(
           '$_vehicleKey-options-$vin-$userId',
         );
 
@@ -29,9 +29,10 @@ class VehicleLocalDataSource {
           return Result.ok(([], null));
         }
 
-        final jsonOptions = jsonDecode(jsonOptionsString) as List<dynamic>;
         return Result.ok((
-          jsonOptions.map((e) => VehicleOption.fromJson(e)).toList(),
+          jsonOptionsString
+              .map((e) => VehicleOption.fromJson(jsonDecode(e)))
+              .toList(),
           null,
         ));
       }
@@ -49,7 +50,10 @@ class VehicleLocalDataSource {
   }
 
   Future<Result<void>> saveOptions(
-      List<VehicleOption> options, String vin, String userId) async {
+    List<VehicleOption> options,
+    String vin,
+    String userId,
+  ) async {
     try {
       await sharedPreferences.setStringList(
         '$_vehicleKey-options-$vin-$userId',
