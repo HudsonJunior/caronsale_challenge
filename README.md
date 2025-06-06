@@ -85,3 +85,9 @@ The application uses BLoC pattern with Cubits for state management. Each feature
 4. Source (API/Local) performs the actual data operation
 5. Data flows back up through the same chain
 6. UI updates based on the new state
+
+
+## Demo
+
+https://github.com/HudsonJunior/caronsale_challenge/blob/master/recording.mp4
+
