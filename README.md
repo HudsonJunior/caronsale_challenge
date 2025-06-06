@@ -34,7 +34,6 @@ I've done what I thought was enough for a small application like this. I haven't
 
 The project includes tests for:
 - Repositories
-- Sources
 - Cubits
 
 Run tests using:
